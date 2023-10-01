@@ -13,9 +13,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
-   const productsData = await prisma.product.findMany();
+   const products = await prisma.product.findMany();
 
-   res.send(productsData);
+   res.send(products);
 });
 
 app.listen(PORT, () => {
