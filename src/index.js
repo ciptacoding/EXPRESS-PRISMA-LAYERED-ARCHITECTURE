@@ -88,6 +88,29 @@ app.put("/products/:id", async (req, res) => {
    });
 });
 
+// update using method PATCH
+app.patch("/products/:id", async (req, res) => {
+   const productId = req.params.id;
+   const productData = req.body;
+
+   const product = await prisma.product.update({
+      where: {
+         id: parseInt(productId),
+      },
+      data: {
+         name: productData.name,
+         description: productData.description,
+         price: productData.price,
+         image: productData.image,
+      },
+   });
+
+   res.send({
+      data: product,
+      message: "Product has been updated",
+   });
+});
+
 // port running
 app.listen(PORT, () => {
    console.log("Express API running in port:" + PORT);
