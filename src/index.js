@@ -11,8 +11,9 @@ const PORT = process.env.PORT;
 // express middleware to read json
 app.use(express.json());
 
+// test in route index
 app.get("/", (req, res) => {
-   res.send("Hello Sepuh puh");
+   res.send("Hello Sepuh, Gua baru belajar bikin res ya");
 });
 
 // get all data products
@@ -109,6 +110,23 @@ app.patch("/products/:id", async (req, res) => {
       data: product,
       message: "Product has been updated",
    });
+});
+
+// get products by id
+app.get("/products/:id", async (req, res) => {
+   const productId = req.params.id;
+
+   const product = await prisma.product.findUnique({
+      where: {
+         id: parseInt(productId),
+      },
+   });
+
+   if (!product) {
+      return res.status(400).send("Product not found!");
+   }
+
+   res.send(product);
 });
 
 // port running
