@@ -1,4 +1,4 @@
-// Layer repository berfungsi sebagai alata berkomunikasi dengan database
+// Layer repository berfungsi sebagai alat berkomunikasi dengan database
 // Boleh pake orm, boleh juga raw query
 // Supaya apa? supaya kalo mau ganti-ganti ORM tinggal edit di file ini aja
 
