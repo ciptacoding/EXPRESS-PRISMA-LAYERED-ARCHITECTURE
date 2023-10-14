@@ -1,11 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 const app = express();
 
 dotenv.config();
 
 const PORT = process.env.PORT;
+
+// enabled cors
+app.use(cors());
 
 // express middleware to read json
 app.use(express.json());
