@@ -26,3 +26,5 @@ app.use("/products", productController); //"/products berfungsi sebagai prefix"
 app.listen(PORT, () => {
    console.log("Express API running in port:" + PORT);
 });
+
+module.exports = app;
